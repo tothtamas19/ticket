@@ -6,4 +6,5 @@ git remote set-url https://sajatnek/okticket
 git remote set-url origin https://github.com/tothtamas19/ticket.git
 git status -u
 git add .
+git commit -m ""
 git push origin master
