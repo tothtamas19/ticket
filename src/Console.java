@@ -12,35 +12,26 @@ import java.util.Scanner;
 
 public class Console {
 
-  /*
-   * A be() függvény indítja a bekérést,
-   * és a tárolást.
-   */
-  public void be(){
-    Scanner b = new Scanner(System.in);
-    System.out.print("Bejelentő neve: ");
-    String da = b.nextLine();
-    System.out.print("Hiba leírása: ");
-    //A la a hiba szövege
-    String la = b.nextLine();
-    Store a = new Store();
-    Incident i = new Incident();
-    i.name = da;
-    i.error = la;
+  public void startApp(){
+    Scanner scanner = new Scanner(System.in);
 
-    /*
-     * Hibakezelő rész, ami fájlbaírás
-     * műveletnél használt FileWriter 
-     * esetleges hibáját kezeli. A FileWriter
-     * az java.io csomagban van. A kivétel
-     * amit dob: IOException.
-     */
-    
+    System.out.print("Bejelentő neve: ");
+    String name = scanner.nextLine();
+
+    System.out.print("Hiba leírása: ");
+    String message = scanner.nextLine();
+
+    Store store = new Store();
+    Incident incident = new Incident();
+    incident.name = name;
+    incident.message = message;
+  
+
     try {
-      a.doit(i);
+      store.tryWriteIncidentToFile(incident);
     } catch (Exception e) {
-      System.out.println(da + " hiba leírt: " + la);
+      System.out.println(name + " hiba leírt: " + message);
     }
-    b.close();
+    scanner.close();
   }
 }

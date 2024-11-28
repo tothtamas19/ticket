@@ -9,11 +9,21 @@
 */
 
 import java.io.FileWriter;
+import java.io.IOException;
 
 public class Store {
-  public void doit(Incident i) throws Exception {
-    FileWriter a = new FileWriter("incidents.txt");
-    a.write(i.name + ":" + i.error + "\n");
-    a.close();
+  public void writeIncidentToFile(Incident incident) {
+    try {
+      tryWriteIncidentToFile(incident);
+    } catch (Exception e) {
+      System.err.println("HIBA! A fájl íréása sikertelen!");
+      System.err.println(e.getMessage());
+    }
+  }
+  
+  public void tryWriteIncidentToFile(Incident incident) throws IOException  {
+    FileWriter fw = new FileWriter("incidents.txt");
+    fw.write(incident.name + ":" + incident.message + "\n");
+    fw.close();
   }
 }

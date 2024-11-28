@@ -1,0 +1,9 @@
+git remote add https://sajatnek/okticket
+
+clone:
+git remote set-url https://sajatnek/okticket
+
+git remote set-url origin https://github.com/tothtamas19/ticket.git
+git status -u
+git add .
+git push origin master

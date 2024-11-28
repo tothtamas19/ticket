@@ -1,5 +1,5 @@
 /*
-* File: Case.java
+* File: Incident.java
 * Author: Sallai András
 * Copyright: 2024, Sallai András
 * Group: oktat
@@ -9,9 +9,6 @@
 */
 
 public class Incident {
-  /* A tárolt név */
   String name;
-
-  /* A tárolt hiba */
-  String error;
+  String message;
 }
